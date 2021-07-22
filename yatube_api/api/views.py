@@ -56,5 +56,4 @@ class FollowViewSet(CustomViewSet):
         serializer.save(user=self.request.user)
 
     def get_queryset(self):
-        user = get_object_or_404(User, username=self.request.user)
-        return user.follower.all()
+        return self.request.user.follower.all()
